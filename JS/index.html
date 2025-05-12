@@ -28,7 +28,23 @@
   <h1 id="hello">안녕하세요</h1>
   <h1 id="hi">JS 초보에요</h1>
 
+  <div class="alert-box" id="alert">
+    알림창임
+    <button onclick="document.getElementById('alert').style.display='none';"> 닫기 </button>
+  </div>
+
+  <button onclick="document.getElementById('alert').style.display='block';"> 버튼 </button>
+
   <script>
+    // 오늘의 숙제 :
+    // Alert 박스 내에 닫기 버튼과 기능을 만들어보십시오 
+    // 닫기 버튼을 누르면 Alert 박스가 뿅 사라져야합니다. 
+    // TODO: 자바스크립트 사용하여 알림창 화면 출력 기능 구현 (2025.05.13 minjae)
+    // 참고 URL - https://binggamel.tistory.com/89
+    // function doDisplay() {
+    //   document.getElementById('alert').style.display='block'
+    // }
+
     // (참고)
     // .getElementById()는 셀렉터라고 부른다. 웹문서(.html 파일)에서 원하는 요소를 찾기 위해 사용.
     // .innerHTML / .style / .color 이렇게 점찍는데 괄호없는건 메소드(또는 함수) 라고 부른다.
@@ -79,4 +95,5 @@
 
 <!--  [코딩애플] JavaScript 스터디  -->
 <!--  Level 1  -->
-<!--  1강 - 자바스크립트 기초강의인데 이걸 어디다 쓰냐면 -->
+<!--  1강 - 자바스크립트 기초강의인데 이걸 어디다 쓰냐면  -->
+<!--  2강 - 동적 UI 만드는 스텝 (Alert 박스 만들기)    -->
