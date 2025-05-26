@@ -29,28 +29,99 @@
   <!-- <h1 id="hi">JS 초보에요</h1> -->
 
   <div class="alert-box" id="alert">
-    <p>알림창임</p>
+    <p id="title"> 알림창임 </p>
     <!-- <button onclick="document.getElementById('alert').style.display='none';"> 닫기 </button> -->
-    <button onclick="알림창열기('none');">닫기</button>
+    <button id="close"> 닫기 </button>
   </div>
+
+  <button onclick="알림창('아이디입력하셈')">버튼1</button>
+  <button onclick="알림창('비번입력하셈')">버튼2</button>
 
   <!-- <button onclick="document.getElementById('alert').style.display='block';"> 버튼 </button> -->
   <!-- <button onclick="알림창열기('block')">알림창 여는 버튼</button>  -->
 
-  <button onclick="알림창열기('block', '아이디를 입력하세요');">버튼1</button>
-  <button onclick="알림창열기('block', '비밀번호를 입력하세요');">버튼2</button>
+  <!-- <button onclick="아이디알림창()">버튼1</button> -->
+  <!-- <button onclick="비번알림창()">버튼2</button> -->
+
+  <p class="title1"> 테스트1 </p>
+  <p class="title1"> 테스트2 </p>
 
   <script>
+    // 콜백함수
+    // 함수 파라미터자리에 들어가는 함수를 전문용어로 '콜백함수'라고 한다.
+    // 콜백함수는 그냥 뭔가 순차적으로 실행하고 싶을 때 많이 보이는 함수형태며
+    // 그냥 함수안에 함수 넣으라고 하면 "아 저건 콜백함수구나~" 라는 반응만 보이면 된다. 
+    // (예) addEventListener() 함수의 두번째 파라미터 function(){} 가 '콜백함수'이다.
+    // 셀렉터로찾은요소.addEventListener('scroll', function(){} );
+
+
+    // 이벤트 리스너를 배웠는데 이벤트가 뭐냐고요?
+    // 유저가 웹페이지 접속해서 클릭, 스크롤, 키보드입력, 드래그 등을 할 수 있는데 이걸 전문용어로 이벤트라고 부른다.
+    // 어떤 요소 클릭시엔 click 이벤트
+    // 마우스갖다대면 mouseover 이벤트 
+    // 스크롤하면 scroll 이벤트
+    // 키입력하면 keydown 이벤트
+    // ... 몇십가지가 있다. 
+    // 그리고 이벤트가 일어나길 기다리는 친구가 이벤트 리스너이다. (이벤트 리스너는 이벤트 감시하는 역할)
+    // 이벤트 리스너는 이벤트가 일어나면 내부 코드를 실행해주는 고마운 기본 문법이다.  
+    // 이벤트 종류는 수십가지가 있다. 
+    // 참고 URL - https://developer.mozilla.org/en-US/docs/Web/Events
+    // ▲ 이벤트 목록인데 이런거 미련하게 외우지 마시고 필요할 때 찾아쓰자.
+
+    // mouseover 이벤트 리스너
+    // 이러면 셀렉터로찾은요소에 마우스를 스윽 갖다대면 특정 코드 실행
+    // 셀렉터로찾은요소.addEventListener('mouseover', function(){ 
+    //     // 실행할코드
+    // });
+
+    // scroll 이벤트 리스너
+    // 이러면 셀렉터로찾은요소가 스크롤되면 특정 코드 실행 (당연히 그 요소에 스크롤바가 있어야됨)
+    // 셀렉터로찾은요소.addEventListener('scroll', function(){ 
+    //     // 실행할코드
+    // });
+
+    // keydown 이벤트 리스너
+    // 셀렉터로찾은요소에 키보드로 글자를 입력하면 특정 코드 실행 (그 요소가 글자를 입력할 수 있는 input 이런거여야 함)
+    // 셀렉터로찾은요소.addEventListener('keydown', function(){ 
+    //     실행할코드
+    // });
+
+    // '닫기' 버튼 클릭 이벤트 리스너
+    document.getElementById('close').addEventListener('click', function(){
+        document.getElementById('alert').style.display = 'none'
+    });
+
+    // 버튼 클릭 이벤트 리스너
+    // 아래처럼 작성하면 'id가 어쩌구인 요소를 클릭하면 안의 코드를 실행해주세요~' 라는 뜻
+    // document.getElementById('어쩌구').addEventListener('click', function(){
+    //     //실행할 코드 
+    // });
+
+    // 첫 <p> 태그 내용이 '안녕'으로 변경 - getElementsByClassName('클래스명')[순서] 이렇게 쓰면 됨
+    // getElementsByClassName 셀렉터는 일치하는 class가 들어있는 모든 html 요소를 찾아주기 때문.
+    // 그래서 그 중에 몇번째 요소를 바꿀지 [순서]를 꼭 뒤에 붙여줘야함.
+    document.getElementsByClassName('title1')[0].innerHTML = '안녕';
+
+
     // 오늘의 숙제 :
     // 버튼 2개를 만들어놓고
     // 버튼1과 버튼2를 누르면 각각 다른 이름의 alert 박스가 나오도록 코드를 짜봅시다.
 
     // - 버튼1을 누르면 '아이디를 입력하세요' 라는 alert 박스가 등장해야합니다.
     // - 버튼2를 누르면 '비밀번호를 입력하세요' 라는 alert 박스가 등장해야합니다. 
-    function openAlert(구멍1, 구멍2) {
-      document.getElementById('alert').style.display = 구멍1;
-      document.getElementById('alert').firstChild.innerHTML = 구멍2;
+    function 알림창(구멍) {
+      document.getElementById('title').innerHTML = 구멍; 
+      document.getElementById('alert').style.display = 'block'; 
     }
+    // function 아이디알림창() { 
+    //   document.getElementById('title').innerHTML = '아이디입력하셈'; 
+    //   document.getElementById('alert').style.display = 'block'; 
+    // }
+
+    // function 비번알림창() { 
+    //   document.getElementById('title').innerHTML = '비번입력하셈'; 
+    //   document.getElementById('alert').style.display = 'block'; 
+    // }
 
     // 오늘의 숙제 : 
     // Alert 박스 닫는 코드도 function 이용해서 짧게 한 단어로 축약해보십시오
@@ -62,10 +133,10 @@
     //   document.getElementById('alert').style.display = 'block';
     // }
 
-    function 알림창열기(구멍, 구멍2) {
-      document.getElementById('alert').style.display = 구멍;
-      document.getElementById('alert').innerHTML = 구멍2;
-    }
+    // function 알림창열기(구멍, 구멍2) {
+    //   document.getElementById('alert').style.display = 구멍;
+    //   document.getElementById('alert').innerHTML = 구멍2;
+    // }
 
     // 알림창열기('none');   // 이거 실행하면 알림창 닫힐듯
     // 알림창열기('block');  // 얘는 알림창 열릴듯 
@@ -138,3 +209,4 @@
 <!--  2강 - 동적 UI 만드는 스텝 (Alert 박스 만들기)    -->
 <!--  3강 - 자바스크립트 function 문법 사용법          -->
 <!--  4강 - function의 파라미터 문법                  -->
+<!--  5강 - 자바스크립트 이벤트리스너                   -->
