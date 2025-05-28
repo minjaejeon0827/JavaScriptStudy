@@ -25,6 +25,23 @@
           crossorigin="anonymous"></script>
 </head>
 <body>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand">Navbar</span>
+      <button class="navbar-toggler" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav> 
+
+  <ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul> 
+
   <!-- <h1 id="hello">안녕하세요</h1> -->
   <!-- <h1 id="hi">JS 초보에요</h1> -->
 
@@ -36,6 +53,7 @@
 
   <button onclick="알림창('아이디입력하셈')">버튼1</button>
   <button onclick="알림창('비번입력하셈')">버튼2</button>
+  <button type="button" class="btn btn-primary">Primary</button>
 
   <!-- <button onclick="document.getElementById('alert').style.display='block';"> 버튼 </button> -->
   <!-- <button onclick="알림창열기('block')">알림창 여는 버튼</button>  -->
@@ -44,9 +62,47 @@
   <!-- <button onclick="비번알림창()">버튼2</button> -->
 
   <p class="title1"> 테스트1 </p>
-  <p class="title1"> 테스트2 </p>
+  <!-- <p class="title1"> 테스트2 </p> -->
+
+  <div class="test1">안녕하세요</div>
+  <div class="test1">안녕하세요</div>
+  <!-- <div id="test2">안녕하세요</div> -->
 
   <script>
+    // 오늘의 숙제 : 
+    // 심심하면 지금까지 썼던 셀렉터를 querySelector로 다 바꿔보십시오
+
+ 
+    // querySelector
+    // getElementById()
+    // getElementsByClassName()
+
+    // 이거 말고도 다른 방식으로 html 요소를 찾아주는 셀렉터도 있다.
+    // querySelector인데 이거 쓰면 css 잘하는 분들은 편리하게 사용가능하다. 
+
+    // querySelector() 안에는 css 셀렉터 문법을 사용가능하다.
+    // css에서 마침표(.)는 class라는 뜻이고 #은 id라는 뜻임
+    // 다만 querySelector() 는 맨 위의 한개 요소만 선택해준다.
+
+    // ▲ 그래서 위처럼 test1이라는 클래스가 중복으로 여러개 있는데
+    // X번째 요소를 선택하고 싶은 경우엔 querySelectorAll() 쓰면 된다.
+    // querySelectorAll() 은 해당하는걸 다 찾아서 [] 안에 담아준다.
+    // 그래서 [숫자] 를 뒤에 붙여서 원하는 위치에 있는 요소 찾아쓰면 된다. 
+    // 그래서 심심하면 지금까지 썼던 셀렉터를 querySelector로 다 바꿔보자
+    // document.querySelector('.test1').innerHTML = '안녕';
+    // document.querySelector('#test2').innerHTML = '안녕';
+    document.querySelectorAll('.test1')[1].innerHTML = 'test1 - 안녕';
+
+    // document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
+    //   // document.getElementsByClassName('list-group')[0].classList.add('show');      // class명('show')을 원하는 첫번째 요소(('list-group')[0])에 추가
+    //   // document.getElementsByClassName('list-group')[0].classList.remove('show');   // class명('show')을 원하는 첫번째 요소(('list-group')[0])에서 제거
+    //   document.getElementsByClassName('list-group')[0].classList.toggle('show');
+    // });
+
+    document.querySelectorAll('.navbar-toggler')[0].addEventListener('click', function(){
+      document.querySelectorAll('.list-group')[0].classList.toggle('show');
+    });
+
     // 콜백함수
     // 함수 파라미터자리에 들어가는 함수를 전문용어로 '콜백함수'라고 한다.
     // 콜백함수는 그냥 뭔가 순차적으로 실행하고 싶을 때 많이 보이는 함수형태며
@@ -87,8 +143,12 @@
     // });
 
     // '닫기' 버튼 클릭 이벤트 리스너
-    document.getElementById('close').addEventListener('click', function(){
-        document.getElementById('alert').style.display = 'none'
+    // document.getElementById('close').addEventListener('click', function(){
+    //   document.getElementById('alert').style.display = 'none'
+    // });
+
+    document.querySelector('#close').addEventListener('click', function(){
+      document.querySelector('#alert').style.display = 'none'
     });
 
     // 버튼 클릭 이벤트 리스너
@@ -100,7 +160,8 @@
     // 첫 <p> 태그 내용이 '안녕'으로 변경 - getElementsByClassName('클래스명')[순서] 이렇게 쓰면 됨
     // getElementsByClassName 셀렉터는 일치하는 class가 들어있는 모든 html 요소를 찾아주기 때문.
     // 그래서 그 중에 몇번째 요소를 바꿀지 [순서]를 꼭 뒤에 붙여줘야함.
-    document.getElementsByClassName('title1')[0].innerHTML = '안녕';
+    // document.getElementsByClassName('title1')[0].innerHTML = '안녕';
+    document.querySelectorAll('.title1')[0].innerHTML = 'title1 - 안녕';
 
 
     // 오늘의 숙제 :
@@ -110,9 +171,13 @@
     // - 버튼1을 누르면 '아이디를 입력하세요' 라는 alert 박스가 등장해야합니다.
     // - 버튼2를 누르면 '비밀번호를 입력하세요' 라는 alert 박스가 등장해야합니다. 
     function 알림창(구멍) {
-      document.getElementById('title').innerHTML = 구멍; 
-      document.getElementById('alert').style.display = 'block'; 
+      // document.getElementById('title').innerHTML = 구멍; 
+      // document.getElementById('alert').style.display = 'block'; 
+
+      document.querySelector('#title').innerHTML = 구멍;
+      document.querySelector('#alert').style.display = 'block';
     }
+    
     // function 아이디알림창() { 
     //   document.getElementById('title').innerHTML = '아이디입력하셈'; 
     //   document.getElementById('alert').style.display = 'block'; 
@@ -210,3 +275,4 @@
 <!--  3강 - 자바스크립트 function 문법 사용법          -->
 <!--  4강 - function의 파라미터 문법                  -->
 <!--  5강 - 자바스크립트 이벤트리스너                   -->
+<!--  6강 - 서브메뉴 만들어보기와 classList 다루기      -->
