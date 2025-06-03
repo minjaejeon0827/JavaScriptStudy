@@ -18,13 +18,21 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="main.css" rel="stylesheet">
 
-  <!--  주의사항 - 아래 jQuery 설치한 <script> 태그 아래에서만 jQuery 문법을 사용가능 (웹페이지 로딩 속도는 느리지만 편의상 아래처럼 작성)  -->
+  <!--  주의사항 - 아래 jQuery 설치한 <script> 태그 아래에서만 jQuery 문법 사용가능 (웹페이지 로딩 속도는 느리지만 편의상 아래처럼 <head> 태그 안에 작성)  -->
   <!--  참고 URL - https://releases.jquery.com/  -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
           integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
           crossorigin="anonymous"></script>
 </head>
 <body>
+  <!--  로그인 모달창  -->
+  <div class="black-bg">
+    <div class="white-bg">
+      <h4>로그인하세요</h4>
+      <button class="btn btn-danger" id="close">닫기</button>
+    </div>
+  </div> 
+
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
       <span class="navbar-brand">Navbar</span>
@@ -68,11 +76,76 @@
   <div class="test1">안녕하세요</div>
   <!-- <div id="test2">안녕하세요</div> -->
 
+  <p class="hello">안녕</p>
+  <!--  <p class="hello">안녕</p> -->
+  <!--  <p class="hello">안녕</p> -->
+  <button class="test-btn">버튼</button>
+  <button class="login-btn">로그인</button>
+
   <script>
+    // 오늘의 숙제 : 
+    // 버튼하나 아무데나 만들고 버튼 누르면 모달창을 띄워오십시오. 
+    $('.login-btn').on('click', function(){
+      $('.black-bg').show();
+    })
+
+    $('#close').on('click', function(){
+      $('.black-bg').hide();
+    })
+
+    // jQuery UI 애니메이션
+    // .hide() 는 사라지게
+    // .fadeOut() 은 서서히 사라지게
+    // .slideUp() 은 줄어들며 사라지게 만들어준다. 
+
+    // 간단한 애니메이션은 이런 식으로 쉽게 사용가능하다.
+    // 애니메이션을 반대로 주고 싶으면 show() fadeIn() slideDown() 이런게 있다. 
+    // 아니면 fadeToggle() 이런 것도 있음 
+    $('.test-btn').on('click', function(){
+      $('.hello').fadeOut();
+      // $('.hello').hide();
+      // $('.hello').slideUp();
+    });
+
+    // jQuery 이벤트리스너
+    // addEventListener 대신 on 쓰면 똑같다.
+    // on은 $() 이걸로 찾은 것들에만 붙일 수 있다. 
+    // $('.test-btn').on('click', function(){
+    //   // 어쩌구~
+    // });
+    // $('.navbar-toggler').on('click', function(){
+    //   document.querySelectorAll('.list-group')[0].classList.toggle('show');
+    // });
+
+    // html 여러개를 바꾸려면
+    // 1. 자바스크립트 문법 querySelectorAll 
+    // document.querySelectorAll('.hello')[0].innerHTML = '바보';
+    // document.querySelectorAll('.hello')[1].innerHTML = '바보';
+    // document.querySelectorAll('.hello')[2].innerHTML = '바보';
+
+    // 2. jQuery 문법 $() 셀렉터
+    // 그런데 $() 셀렉터는 그냥 querySelectorAll처럼 여러개가 있으면 전부 찾아준다.
+    // 그리고 거기에 [0] 이런 식으로 순서지정해줄 필요없이 냅다 .html() 붙이면
+    // 셀렉터로 찾은 모든 요소를 한 번에 조작하고 변경해줄 수 있다. 
+    // $('.hello').html('바보');
+
+    // jQuery 써서 html '바보' 변경 ($ 이건 querySelector와 동일하게 사용)
+    // $('.hello').html('바보'); 
+
+    // jQuery 써서 css 스타일 변경
+    // (주의) html 셀렉터로 찾으면 html 함수들을 뒤에 붙여야하고
+    // jQuery 셀렉터로 찾으면 jQuery 함수들을 뒤에 붙여야 잘 된다. 
+    // $('어쩌구').innerHTML 이건 안된다는 소리이다. 
+    // $('.hello').css('color', 'red');
+
+    // jQuery 써서 class 탈부착 (toggleClass는 왔다갔다 토글해준다.)
+    // $('.hello').addClass('클래스명');
+    // $('.hello').removeClass('클래스명');
+    // $('.hello').toggleClass('클래스명');
+
     // 오늘의 숙제 : 
     // 심심하면 지금까지 썼던 셀렉터를 querySelector로 다 바꿔보십시오
 
- 
     // querySelector
     // getElementById()
     // getElementsByClassName()
@@ -276,3 +349,4 @@
 <!--  4강 - function의 파라미터 문법                  -->
 <!--  5강 - 자바스크립트 이벤트리스너                   -->
 <!--  6강 - 서브메뉴 만들어보기와 classList 다루기      -->
+<!--  7강 - jQuery 사용법 간단정리                    -->
