@@ -80,17 +80,29 @@
   <!--  <p class="hello">안녕</p> -->
   <!--  <p class="hello">안녕</p> -->
   <button class="test-btn">버튼</button>
-  <button class="login-btn">로그인</button>
+  <!-- <button class="login-btn">로그인</button> -->
+  <button id="login">로그인</button> 
 
   <script>
     // 오늘의 숙제 : 
     // 버튼하나 아무데나 만들고 버튼 누르면 모달창을 띄워오십시오. 
-    $('.login-btn').on('click', function(){
-      $('.black-bg').show();
-    })
+    // document.getElementById('login').addEventListener('click', function() {
+    //   $('.black-bg').addClass('show-modal');
+    //   // document.querySelector('.black-bg').classList.add('show-modal');   // 위의 코드와 같은 기능 $('.black-bg').addClass('show-modal');
+    // })
+
+    // $('.login-btn').on('click', function(){
+    //   $('.black-bg').show();
+    // })
+    $('#login').on('click', function(){
+      // $('.black-bg').fadeIn();
+      $('.black-bg').addClass('show-modal');
+      // document.querySelector('.black-bg').classList.add('show-modal');   // 위의 코드와 같은 기능 $('.black-bg').addClass('show-modal');
+    });
 
     $('#close').on('click', function(){
-      $('.black-bg').hide();
+      // $('.black-bg').hide();
+      $('.black-bg').removeClass('show-modal');   // 위의 코드와 같은 기능 $('.black-bg').hide();
     })
 
     // jQuery UI 애니메이션
@@ -101,6 +113,7 @@
     // 간단한 애니메이션은 이런 식으로 쉽게 사용가능하다.
     // 애니메이션을 반대로 주고 싶으면 show() fadeIn() slideDown() 이런게 있다. 
     // 아니면 fadeToggle() 이런 것도 있음 
+    // 다만 단점은 위와 같은 애니메이션 효과를 사용하면 자바스크립트에게 많은 일을 시키기 때문에 성능이 조금 저하될 수 있다.
     $('.test-btn').on('click', function(){
       $('.hello').fadeOut();
       // $('.hello').hide();
@@ -350,3 +363,4 @@
 <!--  5강 - 자바스크립트 이벤트리스너                   -->
 <!--  6강 - 서브메뉴 만들어보기와 classList 다루기      -->
 <!--  7강 - jQuery 사용법 간단정리                    -->
+<!--  8강 - 모달창만들기와 간단한 애니메이션             -->
