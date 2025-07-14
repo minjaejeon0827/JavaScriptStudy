@@ -29,7 +29,18 @@
   <div class="black-bg">
     <div class="white-bg">
       <h4>로그인하세요</h4>
-      <button class="btn btn-danger" id="close">닫기</button>
+      <!-- <button class="btn btn-danger" id="close">닫기</button> -->
+      <!-- <form> 태그 용도: 서버로 유저 정보 전송 -->
+      <form action="success.html">
+        <div class="my-3">
+          <input type="text" class="form-control" id="idInput">
+        </div>
+        <div class="my-3">
+          <input type="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary" id="submitBtn">전송</button>
+        <button type="button" class="btn btn-danger" id="close">닫기</button>
+      </form> 
     </div>
   </div> 
 
@@ -50,18 +61,23 @@
     <li class="list-group-item">And a fifth one</li>
   </ul> 
 
+  <div class="main-bg">
+    <h4>Shirts on Sale</h4>
+    <button id="login" class="btn btn-danger">로그인</button>
+  </div>
+
   <!-- <h1 id="hello">안녕하세요</h1> -->
   <!-- <h1 id="hi">JS 초보에요</h1> -->
 
-  <div class="alert-box" id="alert">
+  <!-- <div class="alert-box" id="alert">
     <p id="title"> 알림창임 </p>
-    <!-- <button onclick="document.getElementById('alert').style.display='none';"> 닫기 </button> -->
+    <button onclick="document.getElementById('alert').style.display='none';"> 닫기 </button>
     <button id="close"> 닫기 </button>
-  </div>
+  </div> -->
 
-  <button onclick="알림창('아이디입력하셈')">버튼1</button>
-  <button onclick="알림창('비번입력하셈')">버튼2</button>
-  <button type="button" class="btn btn-primary">Primary</button>
+  <!-- <button onclick="알림창('아이디입력하셈')">버튼1</button> -->
+  <!-- <button onclick="알림창('비번입력하셈')">버튼2</button> -->
+  <!-- <button type="button" class="btn btn-primary">Primary</button> -->
 
   <!-- <button onclick="document.getElementById('alert').style.display='block';"> 버튼 </button> -->
   <!-- <button onclick="알림창열기('block')">알림창 여는 버튼</button>  -->
@@ -69,21 +85,40 @@
   <!-- <button onclick="아이디알림창()">버튼1</button> -->
   <!-- <button onclick="비번알림창()">버튼2</button> -->
 
-  <p class="title1"> 테스트1 </p>
+  <!-- <p class="title1"> 테스트1 </p> -->
   <!-- <p class="title1"> 테스트2 </p> -->
 
-  <div class="test1">안녕하세요</div>
-  <div class="test1">안녕하세요</div>
+  <!-- <div class="test1">안녕하세요</div> -->
+  <!-- <div class="test1">안녕하세요</div> -->
   <!-- <div id="test2">안녕하세요</div> -->
 
-  <p class="hello">안녕</p>
+  <!-- <p class="hello">안녕</p> -->
   <!--  <p class="hello">안녕</p> -->
   <!--  <p class="hello">안녕</p> -->
-  <button class="test-btn">버튼</button>
+  <!-- <button class="test-btn">버튼</button> -->
   <!-- <button class="login-btn">로그인</button> -->
-  <button id="login">로그인</button> 
+  <!-- <button id="login">로그인</button>  -->
 
   <script>
+    // 오늘의 숙제 : 
+    // 전송버튼 클릭시 첫째 <input>에 입력된 값이 공백이면 아이디 입력하라고 알림을 띄워봅시다. 
+    // TODO: <input> 입력 값 가져오기 기능 구현 (2025.07.15 minjae)
+    // 참고 URL - https://hianna.tistory.com/411
+    $('#submitBtn').on('click', function() {   // 전송버튼 클릭시
+      if ('' === $('#idInput').val()) alert('아이디입력하세요')   //  첫째 <input>에 입력된 값이 공백이면 아이디 입력하라고 알림을 띄우기
+    })
+
+    // if (3 > 1) {
+    //   console.log('안녕')
+    // }
+
+    // if (3 < 1) {
+    //   console.log('안녕')
+    // } else {
+    //   console.log('안녕2')
+    // }
+    
+
     // 오늘의 숙제 : 
     // 버튼하나 아무데나 만들고 버튼 누르면 모달창을 띄워오십시오. 
     // document.getElementById('login').addEventListener('click', function() {
@@ -177,7 +212,7 @@
     // 그래서 심심하면 지금까지 썼던 셀렉터를 querySelector로 다 바꿔보자
     // document.querySelector('.test1').innerHTML = '안녕';
     // document.querySelector('#test2').innerHTML = '안녕';
-    document.querySelectorAll('.test1')[1].innerHTML = 'test1 - 안녕';
+    // document.querySelectorAll('.test1')[1].innerHTML = 'test1 - 안녕';
 
     // document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
     //   // document.getElementsByClassName('list-group')[0].classList.add('show');      // class명('show')을 원하는 첫번째 요소(('list-group')[0])에 추가
@@ -247,7 +282,7 @@
     // getElementsByClassName 셀렉터는 일치하는 class가 들어있는 모든 html 요소를 찾아주기 때문.
     // 그래서 그 중에 몇번째 요소를 바꿀지 [순서]를 꼭 뒤에 붙여줘야함.
     // document.getElementsByClassName('title1')[0].innerHTML = '안녕';
-    document.querySelectorAll('.title1')[0].innerHTML = 'title1 - 안녕';
+    // document.querySelectorAll('.title1')[0].innerHTML = 'title1 - 안녕';
 
 
     // 오늘의 숙제 :
@@ -364,3 +399,4 @@
 <!--  6강 - 서브메뉴 만들어보기와 classList 다루기      -->
 <!--  7강 - jQuery 사용법 간단정리                    -->
 <!--  8강 - 모달창만들기와 간단한 애니메이션             -->
+<!--  9강 - 폼만들며 배워보는 if else                  -->
