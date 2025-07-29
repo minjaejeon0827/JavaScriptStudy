@@ -93,13 +93,60 @@
   <!-- <div id="test2">안녕하세요</div> -->
 
   <!-- <p class="hello">안녕</p> -->
-  <!--  <p class="hello">안녕</p> -->
-  <!--  <p class="hello">안녕</p> -->
+  <!-- <p class="hello">안녕</p> -->
+  <!-- <p class="hello">안녕</p> -->
   <!-- <button class="test-btn">버튼</button> -->
   <!-- <button class="login-btn">로그인</button> -->
   <!-- <button id="login">로그인</button>  -->
 
   <script>
+    // <input>에 입력된 값이 변경될 때 'input' 이벤트가 발생.
+    document.getElementById('email').addEventListener('input', function(){
+      console.log('안녕')   // 콘솔창에 '안녕' 출력
+    });
+
+    // <input>에 입력된 값이 변경되고 마우스 커서를 다른 곳에 찍으면(포커스를 잃을 때) change 이벤트 발생
+    document.getElementById('email').addEventListener('change', function(){
+      console.log('안녕2')   // 콘솔창에 '안녕2' 출력
+    });
+
+    // if (1 == 1 && 2 == 2){
+    //   console.log('안녕3')
+    // }
+
+    // if (1 == 1 && 2 == 3){
+    //   console.log('안녕4')
+    // }
+
+    // if (1 == 1 || 2 == 3){
+    //   console.log('안녕5')
+    // }
+
+    // if (1 == 4 || 2 == 3){
+    //   console.log('안녕6')
+    // }
+
+    // if (true){
+    //   console.log('진짜임')
+    // }
+
+    // console.log(2 != 1)      // 콘솔창에 true 출력 
+    // console.log(2 == '2')    // 콘솔창에 true 출력 
+    // console.log(2 === '2')   // 콘솔창에 false 출력 
+
+    // if문 소괄호 안에서 false랑 같은 역할
+    // 0
+    // ''
+    // null
+    // undefined
+    // NaN
+
+    // if문 소괄호 안에서 true랑 같은 역할
+    // 0제외 모든 숫자
+    // '아무문자'
+    // []
+    // {}
+
     // 오늘의 숙제 : 
     // 1. 전송버튼 누를 때 아이디랑 패스워드 둘 다 공백검사하려면?
     // 2. 전송버튼 누를 때 입력한 비번이 6자 미만이면 알림띄우기
@@ -441,3 +488,4 @@
 <!--  8강 - 모달창만들기와 간단한 애니메이션             -->
 <!--  9강 - 폼만들며 배워보는 if else                  -->
 <!-- 10강 - 공백검사 숙제와 else if 문법               -->
+<!-- 11강 - input, change 이벤트와 and, or 연산자     -->
