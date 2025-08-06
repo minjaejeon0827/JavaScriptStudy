@@ -46,7 +46,8 @@
 
   <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-      <span class="navbar-brand">Navbar</span>
+      <span class="navbar-brand">JSShop</span>
+      <span id="bg" class="badge bg-dark">Dark 🔄</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -100,6 +101,48 @@
   <!-- <button id="login">로그인</button>  -->
 
   <script>
+    // 오늘의 숙제 :
+    // 다크모드 버튼 눌렀을 때 
+    // 버튼 누른 횟수가 홀수면 버튼 내부 글자를 Light로 변경해주세요~
+    // 버튼 누른 횟수가 짝수면 버튼 내부 글자를 Dark로 변경해주세요~
+    // 라고 코드짜오면 됩니다.  
+    var count = 0;
+
+    // badge 홀수번 클릭시 내부 글자를 Light로 변경 
+    // badge 짝수번 클릭시 내부 글자를 Dark로 변경 
+    // .....
+    $('.badge').on('click', function(){
+      count++;
+      // count += 1;
+      // count = count + 1;
+      console.log(count);
+
+      if (1 == count % 2) $('.badge').html('Light');     // 버튼 누른 횟수가 홀수인 경우 
+      else $('.badge').html('Dark'); // 버튼 누른 횟수가 짝수인 경우 
+    });
+
+    // document.getElementsByClassName('badge')[0].addEventListener('click', function(){
+    //   count++;
+    //   console.log(count);
+
+    //   if (1 == count % 2) {   // 버튼 누른 횟수가 홀수인 경우 
+    //     document.getElementsByClassName('badge')[0].innerHTML = 'Light'; 
+    //   } else {   // 버튼 누른 횟수가 짝수인 경우 
+    //     document.getElementsByClassName('badge')[0].innerHTML = 'Dark'; 
+    //   }
+    // });
+
+    // var 나이 = 20;
+    // var 이름 = 'kim';
+    // console.log(나이);
+    // console.log(이름);
+
+    var 인삿말 = '안녕하세요 반갑습니다 오랜만인데 그동안 잘지냈니';
+    console.log(인삿말);
+
+    var badge = document.getElementsByClassName('badge')[0].innerHTML;  // innerHTML에 저장된 값 가져오기
+    console.log(badge);
+
     // Q1. 철수는 369게임을 더럽게 못합니다. 
     // function 삼육구게임(num) {
     //   if (num % 3 == 0) console.log("박수");
@@ -555,3 +598,4 @@
 <!-- 10강 - 공백검사 숙제와 else if 문법               -->
 <!-- 11강 - input, change 이벤트와 and, or 연산자     -->
 <!-- 12강 - if/else, function 실력향상 과제           -->
+<!-- 13강 - 변수문법과 Dark mode 버튼만들기            -->
