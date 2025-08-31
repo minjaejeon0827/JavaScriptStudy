@@ -67,9 +67,13 @@
     <button id="login" class="btn btn-danger">로그인</button>
   </div>
 
-  <p>태조 이성계가 태어난 년도는?</p>
+  <div class="alert alert-danger">
+    <span id="num">5</span>초 이내 구매시 사은품 증정
+  </div>
+
+  <!-- <p>태조 이성계가 태어난 년도는?</p>
   <input type="text" id="answer">
-  <button id="send-answer">제출</button>
+  <button id="send-answer">제출</button> -->
 
   <!-- <h1 id="hello">안녕하세요</h1> -->
   <!-- <h1 id="hi">JS 초보에요</h1> -->
@@ -105,6 +109,75 @@
   <!-- <button id="login">로그인</button>  -->
 
   <script>
+    // 오늘의 숙제:
+    // 위에서 만든 <div>안에 "5초 이내 구매시 사은품 증정" 이라는 문자가 있다.
+    // 1초마다 5라는 문자를 1씩 감소시켜보자.
+    // 0이 되면 <div>를 안보이게 처리합시다. 
+    // (힌트) 5라는 문자만 <span>5</span> 이걸로 감싸면 html 조작하기 쉬워진다. 
+    // (참고) 타이머를 삭제하고 싶으면
+    // var 타이머 = setInterval(어쩌구);
+    // 이렇게 변수에 저장해둔 다음
+    // 타이머 삭제하고 싶을 때 clearTimeout(타이머) 이 코드 실행하면 됩니다.
+ 
+    // jQuery 메소드 
+    // 참고 URL - https://inpa.tistory.com/entry/jQuery-%F0%9F%93%9A-%EC%A0%9C%EC%9D%B4%EC%BF%BC%EB%A6%AC-%EB%A9%94%EC%86%8C%EB%93%9C-%F0%9F%92%AF-%EC%A0%95%EB%A6%AC
+    var count = 5;
+
+    var timer = setInterval(function(){
+      console.log(count);
+      count -= 1;
+      
+      if (count == 0) {
+        console.log(count);
+        $('.alert').hide();
+        clearTimeout(timer);   // 타이머 객체 timer 삭제 
+      }
+      else {
+        document.querySelector('#num').innerHTML = count;
+      }
+      // if (count >= 0){
+      //   document.querySelector('#num').innerHTML = count;
+      // } 
+    }, 1000);
+
+    // var timer = setInterval(function(){
+    //   value = $('#num').html();
+    //   console.log(value);
+    //   if(value == 0) {
+    //     $('.alert').hide();
+    //     clearTimeout(timer);
+    //   }
+    //   else {
+    //     value -= 1;
+    //     $('#num').html(value);
+    //   }
+    // }, 1000);
+
+    // setTimeout(function(){ 실행할코드~ }, 기다릴시간);
+    // setTimeout(function(){ 
+    //   console.log('안녕')   // 1초 후에 콘솔창에 '안녕' 출력
+    // }, 1000);
+
+    // Q. 페이지 방문 5초 후에 위의 <div>를 숨기려면 코드를 어떻게 짜야할까요?
+    // <script> 안에 적은 코드는 페이지 새로고침시 1회 실행된다.
+    // 그러니 웹페이지 방문시 5초 후에 잘 숨겨지겠군요. 
+    // jQuery 함수인 .hide() 는 display : none 준거랑 비슷하게 동작한다. 
+    // setTimeout(function(){
+    //   $('.alert').hide();
+    // }, 5000);
+
+    // setInterval(function(){ 실행할코드~ }, 기다릴시간);
+    // setInterval(function(){
+    //   console.log('안녕')   // 1초 마다 콘솔창에 '안녕' 출력 
+    // }, 1000);
+
+    // setTimeout(함수, 1000);
+    // // 콜백함수 - 함수() 구현
+    // function 함수(){
+    //   console.log('안녕')   // 1초 후에 콘솔창에 '안녕' 출력
+    // }
+
+
     // Q1. 변수를 만들어보자
     // 내 나이와 출신지역을 자바스크립트 변수에 저장해보자. 
     // 나이는 맨날 변하니 재할당가능한 변수,
@@ -190,17 +263,17 @@
     //   }
     // });
 
-    var count = 0;
+    // var count = 0;
 
-    document.querySelector('#send-answer').addEventListener('click', function(){
-      count += 1;
-      var 유저답안 = document.querySelector('#answer').value;
-      if (유저답안 == '1335') {
-        alert('성공')
-      } else if (count >= 3 && 유저답안 != '1335'){
-        alert('멍청아')
-      }
-    });
+    // document.querySelector('#send-answer').addEventListener('click', function(){
+    //   count += 1;
+    //   var 유저답안 = document.querySelector('#answer').value;
+    //   if (유저답안 == '1335') {
+    //     alert('성공')
+    //   } else if (count >= 3 && 유저답안 != '1335'){
+    //     alert('멍청아')
+    //   }
+    // });
 
     // (응용 1)
     // 위에서 1.2를 여러번 곱했는데 1.2를 10번 곱하려면 코드를 어떻게 짜야될까요? 
@@ -270,20 +343,20 @@
     // 버튼 누른 횟수가 홀수면 버튼 내부 글자를 Light로 변경해주세요~
     // 버튼 누른 횟수가 짝수면 버튼 내부 글자를 Dark로 변경해주세요~
     // 라고 코드짜오면 됩니다.  
-    var count = 0;
+    // var count = 0;
 
-    // badge 홀수번 클릭시 내부 글자를 Light로 변경 
-    // badge 짝수번 클릭시 내부 글자를 Dark로 변경 
-    // .....
-    $('.badge').on('click', function(){
-      count++;
-      // count += 1;
-      // count = count + 1;
-      console.log(count);
+    // // badge 홀수번 클릭시 내부 글자를 Light로 변경 
+    // // badge 짝수번 클릭시 내부 글자를 Dark로 변경 
+    // // .....
+    // $('.badge').on('click', function(){
+    //   count++;
+    //   // count += 1;
+    //   // count = count + 1;
+    //   console.log(count);
 
-      if (1 == count % 2) $('.badge').html('Light 🔄');     // 버튼 누른 횟수가 홀수인 경우 
-      else $('.badge').html('Dark 🔄'); // 버튼 누른 횟수가 짝수인 경우 
-    });
+    //   if (1 == count % 2) $('.badge').html('Light 🔄');     // 버튼 누른 횟수가 홀수인 경우 
+    //   else $('.badge').html('Dark 🔄'); // 버튼 누른 횟수가 짝수인 경우 
+    // });
 
     // document.getElementsByClassName('badge')[0].addEventListener('click', function(){
     //   count++;
@@ -767,3 +840,4 @@
 
 <!--  Level 2  -->
 <!-- 15강 - 변수, 사칙연산 실력향상 과제               -->
+<!-- 16강 - setTimeout 타이머주는 법                 -->
